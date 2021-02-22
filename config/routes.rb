@@ -1,3 +1,9 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  devise_for :users
+  root 'spots#index'
+  resources :spots
+  resources :users, only: [:show, :edit, :update]
+  resources :spots do 
+    resources :comments, only: [:create]
+  end 
 end

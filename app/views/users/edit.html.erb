@@ -1,0 +1,56 @@
+<div class="new-main">
+  <div class="new-content">
+    <p class="page-title">
+      User edit
+    </p>
+    <h1 class="subtitle">
+      ユーザー編集
+    </h1>
+  </div>
+  <div class="wide-content-article">
+    <article class="article">
+      <p class="article-content">
+      </p>
+      <br class="clear">
+      <div class="user-wpcf7">
+        <div class="error-form">
+          <%= form_for(@user) do |f| %>
+            <% if @user.errors.any? %>
+              <h3 class="error">
+                入力した内容にエラーが<%= @user.errors.count %>件あります
+              </h3>
+              <ul class="error-point">
+                <% @user.errors.full_messages.each do |message| %>
+                  <li class="error-point-item">
+                    <p class="message">
+                      <%= message %>
+                    </p>
+                  </li>
+                <% end %>
+              </ul>
+            <% end %>
+          </div>
+          <div class="name-space">
+            <%= f.label :name, "名前", {class: 'name-logo'} %>
+            <%= f.text_field :name, class: "name-area" %>
+          </div>
+          <div class="from-space">
+            <%= f.label :from, "出身", {class: 'from-logo'} %>
+            <%= f.text_field :from, class: "from-area", placeholder: "例：東京都" %>
+          </div>
+          <div class="age-space">
+            <%= f.label :age, "年齢", {class: 'age-logo'} %>
+            <%= f.text_field :age, class: "age-area", placeholder: "例：20歳" %>
+          </div>
+          <div class="image-area">
+            <%= f.label :image, "ユーザー写真", {class: 'image-logo'} %>
+            <%= f.file_field :image, class: "image" %>
+          </div> 
+          <div class="user-send">
+            <%= f.submit  "Send", class: "user-send-buttom" %>
+          </div>
+        <% end %>
+      </div>
+    </article>
+  </div>
+</div>

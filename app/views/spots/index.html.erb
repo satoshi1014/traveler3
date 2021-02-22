@@ -1,0 +1,10 @@
+<div class="main">
+  <div class="main-content">
+     <div class="wide-content">
+      <div class="loop">
+         <%= render partial: "spot", collection: @spots %>
+      </div>
+      <%= paginate @spots %>
+     </div>
+  </div>
+</div>

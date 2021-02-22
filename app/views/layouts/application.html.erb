@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Traveler3</title>
+    <title>Traveler</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,44 @@
   </head>
 
   <body>
+    <div class="wrapper">
+    <% if user_signed_in? %>
+      <% unless %w[new_user_session new_user_registration].any? { |name| current_page?(send("#{name}_path")) } %> 
+      <header class="header">
+        <div class="header-menu">
+          <div class="header-menu-content">
+            <div class="header-menu-items">
+              <ul class="header-menu-space">
+                <li class="header-menu-btn">
+                  <%= link_to "投稿する",new_spot_path, class: "new-form-btn btn" %>
+                </li>
+                <li class="header-menu-btn">
+                  <%= link_to "ホームへ戻る", root_path, class: "home-btn btn" %>
+                </li>
+                <li class="header-menu-btn">
+                  <%= link_to "サインアウト", destroy_user_session_path, method: :delete, class: "header-sign-out-btn btn" %>
+                </li>
+                <li class="header-menu-btn">
+                  <%= link_to "マイページ",user_path(current_user) , class: "header-mypage-btn btn" %>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="header-content">
+          <h1 class="main-title">
+            <%= link_to "Traveler", root_path ,class: "main-title-buttun" %>
+          </h1>
+          <p class="site-description">
+            さまざまな旅行先を
+            <br>
+            皆に共有しよう！
+          </p>
+        </div>
+      </header>
+      <% end %>
+    <% end %>
     <%= yield %>
+    </div>
   </body>
 </html>

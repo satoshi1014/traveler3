@@ -1,0 +1,78 @@
+<div class="new-main">
+  <div class="new-content">
+    <h2 class="throw-spot">
+      <a href="/users/<%= @spot.user.id %>" class="thorw-spot-btn">
+        <%= @spot.user.name %>
+      </a>
+      <span>
+        さんの投稿
+      </span>
+    </h2>
+    <h1 class="show-place-content">
+      <%= @spot.place %>
+    </h1>
+    <h1 class="show-one-word-content">
+      <%= @spot.one_word %>
+    </h1>
+  </div>
+  <div class="show-address">
+    <p class="show-address-content">
+      <%= @spot.address %>
+    </p>
+  </div>
+  <div class="wide-content-article">
+    <div class="show-content">
+      <div class="show-image">
+        <%= image_tag @spot.image, class: "sab-image" %>
+      </div>
+      <p class="show-thought">
+        <%= @spot.thought %>
+      </p>
+    </div>
+  </div>
+  <% if current_user.id == @spot.user.id %>
+  <div class="btn-area">
+    <ul class="btn-space">
+      <li class="btn-space-edit show-btn">
+        <%= link_to '編集', "/spots/#{@spot.id}/edit", class: "show-edit-btn" %>
+      </li>
+      <li class="btn-space-delete show-btn">
+        <%= link_to '削除', "/spots/#{@spot.id}", method: :delete, class: "show-delete-btn" %>
+      </li>
+    </ul>
+  </div>
+  <% end %>
+  <div class="comment-area">
+    <div class="comment-form">
+      <%= form_with(model:[@spot, @comment], method: :post, class: "comment-main-form") do |f| %>
+        <%= f.text_area :comment_content, class: "comment-form-area" %>
+        <%= f.hidden_field :spot_id, value: @spot.id %>
+        <%= f.submit 'コメントする', class: "comment-form-btn" %>
+      <% end %>
+    </div>
+    <div class="comment-display">
+      <h2 class="comment-title">
+        コメント一覧
+      </h2>
+      <% unless @comments.present? %>
+        <p class="comment-nil">
+          ※　まだコメントはありません
+        <p>
+      <% else %>
+        <div class="comment-items">
+          <% @comments.each do |comment| %>
+            <p class="comment-core">
+              <%= image_tag comment.user.image, class: "comment-user-image" %>
+              <span class="comment-user">
+                <%= comment.user.name %>:
+              </span>     
+              <span class="comment-content">
+                <%=  comment.comment_content %>
+              </span>
+            </p>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

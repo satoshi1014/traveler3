@@ -1,0 +1,17 @@
+<div class="loop-article">
+  <h2 class="area">
+    <a class="area-description" href ="/spots/<%= spot.id %>" >
+      <%= spot.place %>
+    </a> 
+  </h2>
+  <div class="image-space">
+    <a class="image-buttom" href="/spots/<%= spot.id %>">
+      <%= image_tag spot.image, class: "top-image" %>
+    </a>
+  </div>
+  <p class="sab-text">
+    <a href="/spots/<%= spot.id %>" class="sab-text-class">
+      <%= spot.one_word %>
+    </a>
+  </p>
+</div>

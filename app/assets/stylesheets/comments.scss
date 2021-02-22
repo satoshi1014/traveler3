@@ -1,0 +1,79 @@
+// Place all the styles related to the comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.comment-form {
+    border-top: 1px dotted #bbb;
+    margin-top: 20px;
+}
+form.comment-main-form {
+    display: flex;
+    flex-direction: column;
+    margin: 0 20%;
+}
+.comment-form-area {
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+input.comment-form-btn {
+    font-family: serif;
+    border-radius: 5px;
+        text-align: center;
+    color: #000;
+    border: 2px solid #b6b4b4fb;
+    display: inline-block;
+    transition: all 0.2s ease-in-out;
+    overflow: hidden;
+    &:before {
+    content: "";
+    background-color: rgba(255,255,255,0.5);
+    display: block;
+    transform: skewX(-45deg) translateX(0);
+    transition: none;
+  }
+  &:hover {
+    background-color: #b6b4b4fb;
+    color: #fff;
+    // border-bottom: 4px solid darken(#b6b4b4fb, 10%);
+    &:before {
+      transform: skewX(-45deg) translateX(13.5em);
+     transition: all 0.5s ease-in-out;
+    }
+  }
+}
+h2.comment-title {
+    color: #777;
+    margin-top: 10px;
+    margin-left: 5%;
+    font-family: serif;
+}
+.comment-items{
+  background-color: #8080803d;
+    border-radius: 20px;
+    margin: 5px 5% 60px 5%;
+    padding: 10px 0;
+}
+p.comment-core {
+    font-family: serif;
+    margin-left: 5px;
+    display: flex;
+    align-items: center;
+}
+img.comment-user-image {
+    object-fit: cover;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+span.comment-user {
+    margin: 0 20px 0 5px;
+}
+.comment-core + .comment-core{
+      margin-top: 10px;
+}
+p.comment-nil {
+    font-family: serif;
+    text-align: center;
+    margin: 20px 0 40px 0;
+}

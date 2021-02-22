@@ -1,0 +1,41 @@
+<div class="body">
+<%= video_tag("/videos/top-video.mp4", autoplay: :true, loop: :true, muted: :true, class: 'video-content', style: "width:100%") %>
+  <div class="login">
+    <div class="login-space">
+      <h2 class="sign-up-title">
+        sign up
+      </h2>
+      <h2 class="sign-in-title">
+        <a href="/users/sign_in" class="sign-in-title-btn">
+          sign-in
+        </a>
+      </h2>
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "form" }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+        <div class="field">
+          <%= f.label :email, "email", {class: "sign-up-email"} %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "email" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password, "password", {class: "sign-up-password"} %>
+          <br />
+          <%= f.password_field :password, autocomplete: "new-password", class: "password" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password_confirmation, "password conformation", {class: "sign-up-password-conformation"} %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "password-conformation" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Sign up", class: "sign-up-btn" %>
+        </div>
+      <% end %>
+
+      <%# <%= render "devise/shared/links" %> 
+    </div>
+  </div>
+</div>
