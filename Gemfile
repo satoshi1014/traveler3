@@ -68,3 +68,6 @@ gem 'hirb-unicode'
 gem 'mini_magick'
 gem 'devise'
 gem 'kaminari'
+group :production do
+  gem 'rails_12factor'
+end
