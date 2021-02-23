@@ -62,7 +62,9 @@
         <div class="comment-items">
           <% @comments.each do |comment| %>
             <p class="comment-core">
-              <%= image_tag comment.user.image, class: "comment-user-image" if comment.user.image.attached? %>
+            <% if comment.user.image.attached? %>
+              <%= image_tag comment.user.image, class: "comment-user-image" %>
+            <% end %>  
               <span class="comment-user">
                 <%= comment.user.name %>:
               </span>     
