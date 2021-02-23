@@ -6,7 +6,7 @@
   </h2>
   <div class="image-space">
     <a class="image-buttom" href="/spots/<%= spot.id %>">
-      <%= image_tag spot.image, class: "top-image" %>
+      <%= image_tag spot.image, class: "top-image"　if spot.image.attached? %>
     </a>
   </div>
   <p class="sab-text">
