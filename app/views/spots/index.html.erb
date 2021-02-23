@@ -2,7 +2,9 @@
   <div class="main-content">
      <div class="wide-content">
       <div class="loop">
-         <%= render partial: "spot", collection: @spots %>
+        <% @spots.each do |spot| %>
+          <%= render partial: "spots/spot", locals: { spot: spot  } %>
+         <% end %>
       </div>
       <%= paginate @spots %>
      </div>
